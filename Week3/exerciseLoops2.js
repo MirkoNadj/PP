@@ -65,9 +65,6 @@ for (var i = 0; i < m.length; i++) {                            // first loop el
     if (m[i] < min) {                                           // if the given element is smaller than the current minimum
         min = m[i];                                             // it becomes the new minimum
     }
-    else {
-        min = min;
-    }
 }
 
 for (var j = 0; j < m.length; j++) {                            // second loop element by element and if element is equal to minimum
@@ -87,15 +84,12 @@ console.log('Exercise 4.\n\n');
 
 
 
-n = [4, 2, 2, -1, 6];
+var n = [4, 2, 2, -1, 6];
 var min = n[0];                                                 // min get's the value of first element
 
 for (var i = 0; i < n.length; i++) {                            // first loop element by element and if smaller than min, 
     if (n[i] < min) {                                           // it becomes the new min                 
         min = n[i];
-    }
-    else {
-        min = min;      //probably unnecessary?
     }
 }
 
@@ -103,9 +97,6 @@ var nextMin = n[0];                                             // declaring var
 for (var j = 0; j < n.length; j++) {                            // loop every element of array
     if (n[j] < nextMin && n[j] !== min) {                       // if the given element is smaller than 'next larger variable'
         nextMin = n[j];                                         // and it is not equal to min, it is given to the variable 
-    }
-    else {
-        nextMin = nextMin;
     }
 }
 console.log('The first element larger then the minimum (' + min + ') is: ' + nextMin);
@@ -124,9 +115,6 @@ sumPos = 0;
 for (var k = 0; k < pos.length; k++) {                      // loop element by element if positive sum element, if negative do not sum
     if (pos[k] >= 0) {
         sumPos = sumPos + pos[k];
-    }
-    else {
-        sumPos = sumPos;
     }
 }
 
@@ -159,8 +147,6 @@ for (var j = 0; j < leftArr.length; j++) {                      // loop for chec
     if (leftArr[j] === rightArr[j]) {
         countEq = countEq + 1;                                  // the counter increases if the elements are the same
     }
-    else {
-    }
 }
 if (countEq === leftArr.length) {                               // check if the counter is the same as the lenght of original array
     console.log('The array is symmetric.')
@@ -189,7 +175,8 @@ for (var i = 0; i < w1.length; i++) {                    // loop for creating a 
     intw[intw.length] = w1[i];                           // inserting an element from w1
     intw[intw.length] = w2[i];                           // inserting an element from w2
 }
-console.log('Intertwined array is ' + intw);
+console.log('Intertwined array is ');
+console.log(intw);
 
 
 
@@ -212,7 +199,8 @@ for (var i = 0; i < c1.length; i++) {                    // loop for creating th
 for (var j = 0; j < c2.length; j++) {                    // loop for continuation of the new array with the c2 array
     cres[c1.length + j] = c2[j];
 }
-console.log('Concatenated array is: ' + cres);
+console.log('Concatenated array is: ');
+console.log(cres);
 
 
 
@@ -229,15 +217,13 @@ var e = 2;
 var delA = [];
 
 for (var i = 0; i < a.length; i++) {                    // loop for creating a new array without the deleted element
-    if (a[i] === e) {
-        delA = delA;
-    }
-    else {
-        delA = delA + a[i];
+    if (a[i] !== e) {
+        // delA = delA + a[delA.length1];
+        delA[delA.length] = a[i];
     }
 }
-console.log('Array after deletion is: ' + delA);
-
+console.log('Array after deletion is: ');
+console.log(delA);
 
 
 console.log('\n\n');
@@ -266,7 +252,8 @@ if (p < a.length) {                                     // condition for positio
     for (var j = 0; j < a.length - p; j++) {           // loop for continuation of cloned array after the inserted element
         b[b.length] = a[p+j];                          // b.length is the position for adding the next element from the rest of a array 
     }
-    console.log('The new array is: ' + b);
+    console.log('The new array is: ')
+    console.log(b);
 }
 else {
     console.log('Position error.');

@@ -174,7 +174,7 @@ var gradeSum = 0;
 for (var  i = 0; i < s.length; i++) {
     gradeSum = gradeSum + s[i][1];
 }
-console.log(gradeSum);
+
 var average = gradeSum/s.length;
 
 if (average < 60) {
