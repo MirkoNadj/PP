@@ -59,7 +59,7 @@ console.log('Exercise 3.\n\n');
 
 var m = [4, 2, 2, -1, 6];
 var min = m[0];                                                 // the first element is declared the minimum
-var index = 0;                                                  // for 
+var index = 0;                                                   
 
 for (var i = 0; i < m.length; i++) {                            // first loop element by element in the array
     if (m[i] < min) {                                           // if the given element is smaller than the current minimum
@@ -111,7 +111,7 @@ console.log('Exercise 5.\n\n');
 
 
 var pos = [3, 11, -5, -3, 2];
-sumPos = 0;
+var sumPos = 0;
 for (var k = 0; k < pos.length; k++) {                      // loop element by element if positive sum element, if negative do not sum
     if (pos[k] >= 0) {
         sumPos = sumPos + pos[k];
@@ -133,7 +133,7 @@ console.log('Exercise 6.\n\n');
 
 
 
-var leftArr = [3, 4, 12, 8];
+var leftArr = [2, 4, -2, 7, -2, 4, 2];
 var rightArr = [];
 var countEq = 0;                                                // used for counting the number of equal elements from two arrays
 
@@ -214,11 +214,10 @@ console.log('Exercise 9.\n\n');
 
 var a = [4, 6, 2, 8, 2, 2];
 var e = 2;
-var delA = [];
+var delA = 2;
 
-for (var i = 0; i < a.length; i++) {                    // loop for creating a new array without the deleted element
+for (var i = 0; i < a.length; i++) {              // loop for creating a new array without the deleted element
     if (a[i] !== e) {
-        // delA = delA + a[delA.length1];
         delA[delA.length] = a[i];
     }
 }
