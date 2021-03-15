@@ -214,7 +214,7 @@ console.log('Exercise 9.\n\n');
 
 var a = [4, 6, 2, 8, 2, 2];
 var e = 2;
-var delA = 2;
+var delA = [];
 
 for (var i = 0; i < a.length; i++) {              // loop for creating a new array without the deleted element
     if (a[i] !== e) {
