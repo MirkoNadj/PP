@@ -88,7 +88,7 @@ function sq(numOfStars) {
     }
     return starFinal;
 }
-var star = sq(5);
+var star = sq(8);
 console.log(star);
 
 
