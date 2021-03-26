@@ -1,96 +1,15 @@
-// 1. Sorting of an array from   max  to min element
-
-var list = [3, 5, 8, -2 , -5, 6, 12, 56, -9, -1];
-var tempBox;
-
-for (var i = 0; i < list.length; i++) {
-    for (var j = i + 1; j < list.length; j++) {
-        if (list[i] < list[j]) {
-            tempBox = list[i];
-            list[i] = list[j];
-            list[j] = tempBox;
-        }
-    }
-}
-
-console.log(list);
-
-
-
-// 2. Find from which country is the given city (don't use switch!)
-
-
-var city = "Dubrovnik";
-
-var Srbija = [ "Srbija", "Nis", "Ada", "Bac", "Sid", "Senta"];
-var CrnaGora = ["Crna Gora", "Bar", "Kotor", "Tivat", "Bjela", "Ulcinj", "Podgorica"];
-var Hrvatska = ["Hrvatska", "Split", "Zagreb", "Dubrovnik", "Rjeka", "Vukovar"];
-var country = [Srbija, CrnaGora, Hrvatska];
-
-function find(city){
-    for(var i = 0; i < (country.length); i++){
-        for(var j = 0; j < country[i].length; j++){
-            if(city == country[i][j]){
-                return country[i][0];                
-            }
-        }
-    }
-    return "City not found";
-}
-
-console.log(find(city));
-
-/* 3. Array of Multiples
- Create a function that takes two numbers as arguments (num, length) and returns an array of multiples of num until the array length reaches length. */
-
-
-function multiples(num,length) {
-    var mul = [];
-    for (i = 1; i < length; i++) {
-        mul[i-1] = num * i;     
-    }
-return mul;
-}
-
-var multi = multiples(3,5); 
-console.log(multi)
-
-
-
-/* 4.  Burglary Series (01): Calculate Total Losses
-You just returned home to find your mansion has been robbed! Given an object of the stolen items, return the total amount of the burglary (number). If nothing was robbed, return the string "Lucky you!".*/
-
-var stolenItems = {
-  tv: 30,
-  skate: 20,
-  stereo: 50,
-  laptop: 100,
-  pc: 120,
-  lamp: 5,
-}
-
-function stolen() {
-    var sum = 0;
-    for ( var x in stolenItems) {
-        sum += stolenItems[x];
-    }
-    if (sum === 0) {
-        loses = "Lucky you!";
-    }
-    else {
-        loses = sum;
-    }
-    return loses;
-}
-
-console.log(stolen(stolenItems));
-
-
-/* Write a function that converts a Roman number into an Arabic number.
-
-Example: arabic('CDLXXXIII') should return 483. */          
-
-function arabic(romanNum) {    
+<!DOCTYPE html>
+<html> 
+<head>
+<meta charset=utf-8 />
+<title>JavaScript program to calculate multiplication and division of two numbers </title>
+<style type="text/css">
+body {margin: 30px;}
+</style>
+<script>
+function arabic(romanNum) {
+    romanNum = document.getElementById("firstNumber").value;
+        
     var errorCheck = true;                                      // checking if the Roman numeral is correctly written
     for (var c = 0; c < romanNum.length; c++) {
         if (romanNum[c] === romanNum[c+1] && romanNum[c] === romanNum[c+2] && romanNum[c] === romanNum[c+3]) {
@@ -165,20 +84,20 @@ function arabic(romanNum) {
 else {
     return 'Not A Roman Numeral! Try again.';
 }  
+document.getElementById("result").innerHTML = addF;
 }
 
-console.log(arabic('MCDLXXXIII'));
-
-
-
-
-
-
-
-
-
-/* 6. Write a function roman that converts an Arabic number (up to 1000) into a Roman numeral.
-
-Example: roman(483) should return 'CDLXXXIII'.  */
-
-
+</script> 
+</head>
+<body>
+<form>
+1st Number : <input type="text" id="firstNumber" /><br>
+2nd Number: <input type="text" id="secondNumber" /><br>
+<input type="button" onClick="multiplyBy()" Value="Multiply" />
+//<input type="button" onClick="divideBy()" Value="Divide" />
+</form>
+<p>The Result is : <br>
+<span id = "result"></span>
+</p>
+</body>
+</html>

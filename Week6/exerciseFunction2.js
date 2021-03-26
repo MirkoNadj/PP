@@ -18,7 +18,7 @@ console.log(checkIfString(125658));
 false -> false  */
 
 
-var stringCheck ="My random string"
+var stringCheck ="My random string";
 
 function isStringBlank(string) {
     var countSpace = 0;
@@ -83,10 +83,11 @@ result should be the position of character. If there are no occurrences of the c
 function should return -1. */
 
 function firstOccur(string,char) {
+    var position;
     for (var i = 0; i < string.length; i++) {
         if (string[i] === char) {
             position = i+1;
-            break;                                      // break out of loop after first occurance
+            break;                                    // break out of loop after first occurance
         }
         else position = -1;
     }
@@ -94,7 +95,7 @@ function firstOccur(string,char) {
 }
 
 var stringToCheck = 'Check This String For Some Letter';
-var character = 'e';
+var character = 'n';
 
 console.log(firstOccur(stringToCheck,character));
 
@@ -150,7 +151,7 @@ divisors other than 1 and itself. */
 function primeNum(p) {
         var isPrime = true;
     for (var i = 2; i < 10; i++) {
-        if (p%i === 0 && p !== i ) {         
+        if (p%i === 0 && p !== i) {                     
             isPrime = false;
             break;
         }
@@ -158,7 +159,7 @@ function primeNum(p) {
     return isPrime;
 }
 
-console.log('Is this a prime number? ' + primeNum(6299));
+console.log('Is this a prime number? ' + primeNum(5419));
 
 
 /* 9. Write a function that replaces spaces in a string with provided separator. If separator is not
@@ -184,7 +185,7 @@ function replaceSpace(stringToSeparate,separator) {
     return stringNew;
 }
 
-console.log(replaceSpace('My random string'));
+console.log(replaceSpace('My random string', '*'));
 
 
 /* 10. Write a function to get the first n characters and add “...” at the end of newly created string. */
@@ -192,14 +193,19 @@ console.log(replaceSpace('My random string'));
 
 function beginOfString(stringToShort,n) {
     var shortNewString = '';
-    for (var i = 0; i < n; i++) {
-        shortNewString += stringToShort[i];
+    if (n <= stringToShort.length) {
+        for (var i = 0; i < n; i++) {
+            shortNewString += stringToShort[i];
+        }
+        shortNewString += '...';
+        return shortNewString;
     }
-    shortNewString += '...';
-    return shortNewString;
+    else {
+        return 'Given number is bigger than string'
+    }
 }
 
-console.log(beginOfString('A long, long time ago there was a small kingdom.', 17));
+console.log(beginOfString('A long, long time ago there was a small kingdom.', 15));
 
 
 
@@ -209,7 +215,7 @@ console.log(beginOfString('A long, long time ago there was a small kingdom.', 17
 function convertStrToNum(arrStr) {
     var strNum = [];
     var j = 0;
-    for (var i = 0; i < arrStr.length; i++) {
+    for (var i = 0; i < arrStr.length; i++) {                   
         if (isFinite(parseFloat(arrStr[i]))) {
         strNum[j] = parseFloat(arrStr[i]);
         j++
@@ -262,8 +268,9 @@ the correct suffix such as 1st, 2nd, 3rd or 4th.
 
 
 function humanize(num) {
-    if (num > 10 && num < 14) {
-        hum = num + 'th'
+    var hum;
+    if (num > 10 && num < 14) {                   
+        hum = num + 'th';
     }
     else {
         moduo = num%10;
@@ -278,6 +285,11 @@ function humanize(num) {
                 hum = num + 'rd';
                 break;
             case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
             case 0:
                 hum = num + 'th';
                 break;        
@@ -292,6 +304,7 @@ console.log(humanize(13));
 console.log(humanize(1));
 console.log(humanize(2));
 console.log(humanize(3));
+console.log(humanize(7));
 console.log(humanize(10));
 console.log(humanize(1021));
 console.log(humanize(100));
