@@ -1,0 +1,73 @@
+@font-face {
+    font-family: caesarFont;
+    src: url(CAESAR.TTF);
+}
+* {
+    font-family: caesarFont;
+}
+body {
+    background-image: url("mick-haupt-r9wi17AFTpE-unsplash.jpg");
+    background-size: cover;
+}
+
+.envelope {
+    width: 320px;
+    height:520px;
+    text-align: center;
+    border-style: groove;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: rgb(0, 0, 0);
+    margin: 200px auto;
+    background-image: linear-gradient(to right bottom, #d39029, #cf9d45, #cba95f, #c9b47a, #c9be95);
+}
+label {
+    display: inline-block;
+    margin: 25px 0px 10px 0px;
+    font-size: 24px;
+    font-weight: bold;
+    font-style: oblique;
+}
+input {
+    font-size: 22px;
+    font-weight: 500;
+    height:24px;
+    width: 240px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    text-align: center;
+    background-color:#cba95f;    
+}
+button {
+	box-shadow: 0px 1px 0px 0px #1c1b18;
+	background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+	background-color:#eae0c2;
+	border-radius:15px;
+	border:2px solid #333029;
+	display:inline-block;
+	cursor:pointer;
+	color:#505739;
+	font-size:16px;
+	font-weight:bold;
+    line-height: 18px;
+	padding:12px 16px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+    width: 180px;
+    margin: 20px 0px 0px 0px;
+}
+button:hover {
+	background:linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
+	background-color:#ccc2a6;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
+.by {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 20px 10px 5px 220px;
+    color:rgb(51, 48, 41, 0.8);
+}

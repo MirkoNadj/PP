@@ -64,9 +64,10 @@ Input array: [4, 2, 2, -1, 6]
 Output: 2  */
 
 function findArrSecMin(arrMS) {
+    var minEl;
     var secMinEl = arrMS[0];
-    for (var i = 1; i < arrM.length; i++) {
-        if (secMinEl > arrM[i]) {
+    for (var i = 1; i < arrMS.length; i++) {
+        if (secMinEl > arrMS[i]) {
             minEl = arrM[i];
             indexM = i;
         }
