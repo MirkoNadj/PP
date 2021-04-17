@@ -15,9 +15,9 @@ body {
     height:520px;
     text-align: center;
     border-style: groove;
-    border-width: 5px;
-    border-radius: 10px;
-    border-color: rgb(0, 0, 0);
+    border-width: 12px;
+    border-radius: 15px;
+    border-color: rgb(165, 145, 117);
     margin: 200px auto;
     background-image: linear-gradient(to right bottom, #d39029, #cf9d45, #cba95f, #c9b47a, #c9be95);
 }
@@ -68,6 +68,7 @@ button:active {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 12px;
     font-weight: bold;
-    margin: 20px 10px 5px 220px;
+    margin: 40px 10px 0px 20px;
     color:rgb(51, 48, 41, 0.8);
+    text-align: right;
 }
