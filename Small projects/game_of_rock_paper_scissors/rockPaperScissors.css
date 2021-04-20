@@ -1,0 +1,158 @@
+* {
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}    
+.main {
+    margin: 30px auto;
+    width: 960px;
+    height:630px;
+    background-image: linear-gradient(to top, #064fd8, #3c72e5, #6493ef, #8eb4f6, #bad4fb);
+    padding: 30px;
+    border-style: ridge;
+    border-width: 5px;
+    border-radius: 10px;
+}
+.enemy {
+    display:inline-block;
+    width: 220px;
+    height: 620px;    
+    background-image: linear-gradient(to right bottom, #22155c, #1d306f, #23487d, #365f87, #517590);
+    border-style: solid;
+    border-radius: 10px;
+    border-color: darkgrey;
+}
+.enemy img {
+    display: block;
+    width:180px;
+    height:180px;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+.fight {
+    display:inline-block;
+    vertical-align: top;
+    width:420px;
+    height: 590px;
+    background-image: radial-gradient(circle, #f80000, #f36600, #e49900, #cbc500, #a8eb12);
+    margin: 0px 30px 30px 30px;
+    padding: 15px 3px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: darkgrey;
+}
+.fight img {
+    display: block;
+    width: 320px;
+    height: 320px;
+    margin: 20px auto;
+    border-style:groove;
+    border-color: darkgrey;
+    border-radius: 10px;
+}
+.player {
+    display:inline-block;
+    width: 220px;
+    height: 620px;    
+    background-image: linear-gradient(to left bottom, #5c1515, #831417, #ac1016, #d50810, #ff0000);
+    border-style: solid;
+    border-radius: 10px;
+    border-color: darkgrey;
+}
+.player img {
+    display: block;
+    width:180px;
+    height:180px;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+.player img:hover {
+    cursor: pointer;
+}
+.player img:active {
+    width: 164px !important;
+    height: 164px !important;
+    border-style: groove !important;
+    border-width: 8px !important;
+    border-color:dimgray !important;
+}
+.fight div {
+    display:inline-block;
+    padding: 0px 8px 5px 8px;
+    text-align: center;
+    
+    border-style:groove;
+}
+#enemy_score_box {
+    background-color: blue;
+    border-radius: 5px;
+    border-style:groove;
+    margin-left: 10px;
+}
+#player_score_box {
+    background-color: crimson;
+    border-radius: 5px;
+    border-style:groove;
+}
+#draw_score_box {
+    background-color: grey;
+    border-radius: 5px;
+    border-style:groove;
+}
+input {
+    width: 100px;
+    text-align: center;
+    color: red;
+    font-weight: 900;
+    background-color: black;
+}
+label {
+    font-size: 16px;
+}
+.player input {
+    width:180px;
+    height:180px;
+    margin-top: 5px;
+}
+.clearbtn {
+    display: inline-block;
+    vertical-align: top;
+    width: 150px;
+    height:50px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-left: 8px;
+    font-size: 18px;
+}
+.choose_for_me {
+    display: inline-block;
+    width: 250px;
+    height: 50px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+.game_type {
+    width: 380px;
+    background-color: none;
+    border-radius: 10px;
+    margin-left: 20px;
+
+}
+.game_type input {
+    display:inline-block;
+    width:20px;
+}
+.game_type label {
+    width: 90px;
+    font-size: 14px;
+    display:inline-block;
+}
+.game_type p {
+    margin: 0px 0px;
+}
+.main > p {
+    float: right;
+    margin: 15px 10px;
+    text-align: right;
+    font-size: 14;
+    font-style: oblique;
+}

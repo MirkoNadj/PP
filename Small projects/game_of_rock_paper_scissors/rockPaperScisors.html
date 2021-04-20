@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="rockPaperScissors.css">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <div class="main">
+        <div class="enemy">
+            <img id="enemy_rock" src="img/enemy_rock_off.png">
+            <img id="enemy_paper" src="./img/enemy_paper_off.png">
+            <img id="enemy_scissors" src="./img/enemy_scissors_off.png">            
+        </div>
+        <div class="fight">
+                <div id="enemy_score_box" class="score_box">
+                    <label>Computer wins</label><br>
+                    <input type="text" id="enemyScore">
+                </div>
+                <div id="draw_score_box" class="score_box">
+                    <label>Draws</label><br>
+                    <input type="text" id="drawScore">
+                </div>
+                <div id="player_score_box" class="score_box">
+                    <label>Your wins</label><br>
+                    <input type="text" id="playerScore">
+                </div>
+            <img id="who_wins_img" src="./img/fight.jpg">
+            <div class="game_type">
+                <p>Choose type of game</p>
+                <input id="of1" type="radio" name="typeofgame" value="1of1" checked="checked"><label for="of1">1 out of 1</label>
+                <input id="of3" type="radio" name="typeofgame" value="2of3"><label for="of3">2 out of 3</label>
+                <input id="of5" type="radio" name="typeofgame" value="3of5"><label for="of5">3 out of 5</label>
+                <input id="of7" type="radio" name="typeofgame" value="4of7"><label for="of7">3 out of 7</label>
+                <input id="of9" type="radio" name="typeofgame" value="5of9"><label for="of9">5 out of 9</label>
+                <input id="of10" type="radio" name="typeofgame" value="6of10"><label for="of10">6 out of 10</label>
+            </div>
+            <button class="clearbtn" onclick="reset()">New Game</button>
+            <button class="choose_for_me" onclick="clickChooseInsteadOfPlayer()">I'm lazy</button>
+        </div>        
+        <div class="player">
+            <img id="player_rock" src="./img/player_rock_on.png" onclick="playerWeaponFromClick('rock')">
+            <img id="player_paper" src="./img/player_paper_on.png" onclick="playerWeaponFromClick('paper')">
+            <img id="player_scissors" src="./img/player_scissors_on.png" onclick="playerWeaponFromClick('scissors')">        
+        </div>
+        <p>Rock, Paper, Scissors Game<br>
+           by Mirko Nađ</p>
+    </div>    
+    <script src="rockPaperScissors.js"></script> 
+</body>
+</html>
