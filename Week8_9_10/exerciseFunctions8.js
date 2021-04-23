@@ -62,8 +62,27 @@ console.log(sugMail);
 Input: 034
 Output: 28    */
 
+//034 = (0 × 8²) + (3 × 8¹) + (4 × 8⁰) = 28
+'use strict'
+//function octalToDecimal(octalNum) {
+    var octalNum = '0345'
+    var decimalNum = 0;
+    var octalNumString = octalNum + '';
+    var oct = 8;
+    for (var i = 0; i < octalNumString.length-2; i++) {
+        for (var p = 1; p < octalNumString.length - 1 - i; p++) {
+            oct *= oct;
+        }
+        decimalNum += parseInt(octalNumString[i]) * oct;
+    }
+    console.log(decimalNum)
+    decimalNum += (parseInt(octalNumString.length-2) * 8) + parseInt(octalNumString.length-1);
+    return decimalNum;
+}
 
+console.log(octalToDecimal('034'));
 
+console.log()
 
 
 /* 6. Write a function that checks if a given string is valid password. The password is valid if it is at least 6 characters long and contains at least one digit. The function should receive two callbacks named successCallback and errorCallback that should be called in case password is correct or invalid. 
@@ -74,31 +93,32 @@ Output: Your password is invalid!
     Output: Your password is cool! */
 
 'use strict'
-function succesCallback() {
+var succesCallback = function() {
     console.log('Your password is cool!');
 };
-function errorCallback() {
+var errorCallback = function() {
     console.log('Your password is invalid!');
 };
 var isPassValid = (function (password) {
     var passArray = [];
-    var isDigit = false;
-    if (password.length >= 6) {
+    var isValid = false;
+    if (password.length >= 6) {                                // turning string element into array element, one by one
         for (var i = 0; i < password.length; i++) {
             passArray[0] = password[i]
-            if (typeof passArray[i] === 'number') {
-                isDigit = true;
+            if (isNaN(parseInt(passArray[0])) === false) {     // checking if element is a number by parsing it and then 
+                isValid = true;                                // checking if parsing returns NaN or not
+                break;
             }
-        };
-    if (isDigit) {
-        return succesCallback();
         }
+        console.log(passArray)
+    }
+    if (isValid) {
+        return succesCallback();
+    }
     else {
         return errorCallback();
-        }
-    }
+        }        
 })('JSGuru123');
-
 
 /* 7. Write a function that filters elements of the given array so that they satisfy a condition given by the callback function.
 Input: [2, 8, 11, 4, 9, 3], callback function checks if the number is odd
