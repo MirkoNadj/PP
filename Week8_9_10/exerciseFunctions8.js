@@ -62,10 +62,8 @@ console.log(sugMail);
 Input: 034
 Output: 28    */
 
-//034 = (0 × 8²) + (3 × 8¹) + (4 × 8⁰) = 28
-'use strict'
-//function octalToDecimal(octalNum) {
-    var octalNum = '0345'
+//'use strict'
+function octalToDecimal(octalNum) {
     var decimalNum = 0;
     var octalNumString = octalNum + '';
     var oct = 8;
@@ -76,13 +74,21 @@ Output: 28    */
         decimalNum += parseInt(octalNumString[i]) * oct;
     }
     console.log(decimalNum)
-    decimalNum += (parseInt(octalNumString.length-2) * 8) + parseInt(octalNumString.length-1);
+    decimalNum += (parseInt(octalNumString[octalNumString.length-2]) * oct) + parseInt(octalNumString[octalNumString.length-1]);
     return decimalNum;
 }
 
 console.log(octalToDecimal('034'));
 
-console.log()
+// or like this
+
+'use strict'
+var octToDec = (function (octnum,radix) {
+    var octnumString = octnum + '';
+    return parseInt(octnum,radix);
+})('034',8);
+
+console.log(octToDec);
 
 
 /* 6. Write a function that checks if a given string is valid password. The password is valid if it is at least 6 characters long and contains at least one digit. The function should receive two callbacks named successCallback and errorCallback that should be called in case password is correct or invalid. 

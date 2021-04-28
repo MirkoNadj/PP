@@ -24,6 +24,10 @@
             errorCheck = false;
             break;
         }
+        else if (romanNum[c] === 'I' && romanNum[c+1] !== 'V' || romanNum[c] === 'I' && romanNum[c+1] === 'X' || romanNum[c] === 'X' && romanNum[c+1] !== 'L' || romanNum[c] === 'X' && romanNum[c+1] !== 'C' || romanNum[c] === 'C' && romanNum[c+1] !== 'D' || romanNum[c] === 'C' && romanNum[c+1] !== 'M' ) {
+            errorCheck = false;
+            break;
+        }
     }
     if (errorCheck === true) {                          // if the Roman numeral is correct convert every single element
     var rStr = [];                                      // to corresponding arabic value and put them in an array
@@ -46,6 +50,7 @@
                 break;
             case 'V':
                 rStr[k] = 5;
+                break;
             case 'I':
                 rStr[k] = 1;
             default:
@@ -56,12 +61,15 @@
     var i = 0;                                                      
     var addR = 0;
     var addF = 0;
+    var errorCheck2 = true;
     while (i < rStr.length) {
         if (rStr[i] === rStr[i+1] && rStr[i] === rStr[i+2]) {   // check if 3 consecutive elements are equal
             addR = rStr[i] * 3;
             if (addR < rStr[i+3]) {                            // check if they are smaller or bigger than the next element
-                addR = rStr[i+3] - addR;                       // subtract and increase position
-                i = i + 4;
+                //addR = rStr[i+3] - addR;                       // subtract and increase position
+                //i = i + 4;
+                errorCheck2 = false;
+                break;
             } 
             else {
                 i = i + 3;                                     // or just increase position
@@ -70,14 +78,16 @@
         else if (rStr[i] === rStr[i+1]) {                      // check if 2 consecutive elements are equal
             addR = rStr[i] * 2;
             if (addR < rStr[i+2]) {                            // check if they are smaller or bigger than the next element
-                addR = rStr[i+2] - addR;                       // subtract and increase position 
-                i = i + 3;
+                //addR = rStr[i+2] - addR;                       // subtract and increase position 
+                //i = i + 3;
+                errorCheck2 = false;
+                break;
             }
             else {
                 i = i + 2;                                     // or just increase position
             } 
         }
-        else if (rStr[i] < rStr[i+1]) {                        // if consecutive elements are not equal check which one is bigger
+        else if ((rStr[i] < rStr[i+1])) {                        // if consecutive elements are not equal check which one is bigger
             addR = rStr[i+1] - rStr[i];
             i = i + 2; 
         }
@@ -87,8 +97,12 @@
         }
         addF += addR;                                          // sum up individual values from each loop into final value
     }
-    
+    if (errorCheck2 === true) {
     document.getElementById("arabic").value = addF;
+    }
+    else {
+        document.getElementById("arabic").value = 'Not A Roman Num!';   
+    }
 }
 else {
     document.getElementById("arabic").value = 'Not A Roman Num!';
