@@ -51,10 +51,15 @@ function Flight (relation, date) {
     this.date = new Date(date);
     this.listOfPassengers = [];
     this.addPassenger = function (passengerObject) {
-        this.listOfPassengers.forEach (function(passengerElement) {
-            if passengerObject === passengerElement
+        this.listOfPassengers.forEach(function (passengerElement) {
+            if (passengerObject.seat.number === passengerElement.seat.number) {
+                return "same seat";
+            }
+            else {
+                
+            }return this.listOfPassengers.push(passengerObject);
         })
-        return this.listOfPassengers.push(passengerObject);
+        
     };
     this.getData = function () { 
         var flightString = '';
@@ -63,9 +68,6 @@ function Flight (relation, date) {
         });
         return this.date + ',\n\t\t' + this.relation + flightString;
     };
-    this.getDataModified = function () {
-
-    }
 }
 // Airport constructor //
 
