@@ -33,7 +33,17 @@
             return this.listOfMovies.length;
         };
 		this.addMovie = function (movieObject) {
-			return this.listOfMovies.push(movieObject);
+            var countGenre = 0;  
+            var sumLength = 0;         
+            this.listOfMovies.forEach(function (movieElement) {
+                sumLength += movieElement.length;
+                if (movieElement.genre === movieObject.genre) {
+                    countGenre++;
+                }
+            })
+            if (countGenre < 4 && (sumLength + movieObject.length) <= 480) { 
+			    return this.listOfMovies.push(movieObject);
+            }
 		};
         this.getData = function () {
             var allMoviesLength = 0;
@@ -48,7 +58,7 @@
 	
 	// Constructor Festival //
 	
-	function Festival (name) {
+	function Festival (name, maxNumberOfMovies) {
 		this.name = name;
 		this.listOfPrograms = [];
 		this.numberOfMoviesInAll = function () {
@@ -66,11 +76,20 @@
             return allProgramsList;
         }
         this.addProgram = function (programObject) {
+            if ((this.numberOfMoviesInAll() + programObject.numberOfMovies()) > maxNumberOfMovies) {
+                return 'Sori'
+            }
+            else {
             return this.listOfPrograms.push(programObject);
+            }
         };
         this.getData = function () {
+            if (this.listOfPrograms.length === 0) {
+                return this.name + '\n\t\t Program to be announced';
+            }
+            else {
             return this.name + ' has ' + this.numberOfMoviesInAll()  + ' movie titles \n' + this.listAllPrograms();
-        
+            }
         };
 	}
 
@@ -91,15 +110,18 @@
 
     // CREATING OBJECTS //
 
-    var festivalObject1 = new Festival('Palics movie festival');
+    var festivalObject1 = new Festival('Palics movie festival', 7);
 
     var programObject1 = createProgram ('Aug 12 2021');
     var programObject2 = createProgram ('Aug 13 2021');
 
-    var movieObject1 = createMovie ('Terminator 2', 200, 'action');
-    var movieObject2 = createMovie ('Predator', 180, 'action');
+    var movieObject1 = createMovie ('Terminator 2', 10, 'action');
+    var movieObject2 = createMovie ('Predator', 80, 'action');
     var movieObject3 = createMovie ('Forest Gump', 190, 'drama');
-    var movieObject4 = createMovie ('Aliens', 175, 'Sci-Fi');
+    var movieObject4 = createMovie ('Aliens', 75, 'Sci-Fi');
+    var movieObject5 = createMovie ('Terminator 3', 10, 'action');
+    var movieObject6 = createMovie ('Predator 2', 80, 'action');
+    var movieObject7 = createMovie ('Terminator 4', 21, 'action');
 
     // ADDING OBJECTS
 
@@ -107,6 +129,10 @@
     programObject1.addMovie(movieObject2);
     programObject1.addMovie(movieObject3);
     programObject1.addMovie(movieObject4);
+    programObject1.addMovie(movieObject5);
+    programObject1.addMovie(movieObject6);
+    programObject1.addMovie(movieObject7);
+    
 
     programObject2.addMovie(movieObject1);
     programObject2.addMovie(movieObject2);

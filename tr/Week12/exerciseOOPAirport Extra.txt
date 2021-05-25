@@ -8,9 +8,6 @@
 // Person constructor //
 
 function Person (name, surname) {
-    if (!name || !surname) {
-        throw new Error('Name and surname fields required');
-    }
     this.name = name,
     this.surname = surname;
     this.getData = function () {
@@ -21,11 +18,19 @@ function Person (name, surname) {
 
 function Seat (number, category) {
     // if category not defined
-    category = category || 'e';
-    number = number || Math.floor(10 + 91 * Math.random());
-    if (!['e','b'].includes(category)) {
-        throw new Error('Invalid category input');
-    }    
+    if (category === undefined) {
+        this.category = 'e'
+    }
+    else {
+        this.category = category;
+    }
+    // if number not defined
+    if (number === undefined) {
+        this.number = Math.floor(10 + 90 * Math.random());
+    }
+    else {
+        this.number = number;
+    }
     this.getData = function () {
         return this.number +', ' + this.category.toUpperCase(); 
     }
@@ -33,12 +38,6 @@ function Seat (number, category) {
 // Passenger constructor //
 
 function Passenger (personObject, seatObject) {
-    if (!personObject || !(personObject instanceof Person)) {
-        throw new Error('Invalid person input');
-    }
-    if (!seatObject || !(seatObject instanceof Seat)) {
-        throw new Error ('Invalid seat input');
-    }
     this.person = personObject.getData();
     this.seat = seatObject.getData();
     this.getData = function () {
@@ -48,14 +47,10 @@ function Passenger (personObject, seatObject) {
 // Flight constructor //
 
 function Flight (relation, date) {
-    if (!relation || ! date) {
-        throw new Error('Relation and date input required');
-    } 
     this.relation = relation;
     this.date = new Date(date);
     this.listOfPassengers = [];
     this.addPassenger = function (passengerObject) {
-    
         this.listOfPassengers.forEach(function (passengerElement) {
             if (passengerObject.seat.number === passengerElement.seat.number) {
                 return "same seat";
