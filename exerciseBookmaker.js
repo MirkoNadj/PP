@@ -84,22 +84,32 @@
 
     // BETTING HOUSE CONSTRUCTOR //
 
-    function BettingHouse (competitionName, numberOfPlayers) {
+    function BettingHouse (competitionName) {
         this.competitionName = competitionName;
         this.listOfBettingPlaces = [];
-        this.numberOfPlayers = numberOfPlayers;
-    }
+        this.numberOfPlayers = this.listOfBettingPlaces.forEach(function (bettingPlaceElement) {
+            sumOfPlayers += bettingPlaceElement.listOfPlayers.length;
+        })
+        
+        this.addBettingPlaces = function (bettingPlaceObject) {
+            this.listOfBettingPlaces.push(bettingPlaceObject);
+        };
+        this.getData = function () {
+            var numberOfBets = 0;
+            return this.competitionName + ', ' + this.listOfBettingPlaces.length + ' betting places, ' + numberOfBets + '\n'
+        };
+    };
 
     // CREATE PLAYER FUNCTION //
 
     function createPlayer (personObject, betAmount, countryObject) {
-        return playerObject = new Player(personObject, betAmount, countryObject);
+        return new Player(personObject, betAmount, countryObject);
     }
 
     // CREATE BETTING PLACE FUNCTION //
 
     function createBettingPlace (adressObject) {
-        return bettingPlaceObject = new BettingPlace(adressObject)
+        return new BettingPlace(adressObject)
     }
 
     // Creating a Betting House object //
@@ -108,29 +118,36 @@
 
     // Creating four players with random data, two betting places, adding players to betting places, adding betting places to the betting house...
 
-    var countryObject1 = new Country ('SR', 20, continentObject.EUROPE);
+    var countryObject1 = new Country ('SR', 0.2, continentObject.EUROPE);
+    var countryObject2 = new Country ('GR', 1.1, continentObject.EUROPE);
+    var countryObject3 = new Country ('CO', 2, continentObject.SOUTH_AMERICA);
 
-    var personObject1 = new Person ('marko','markovic', 'Nov 12 1982');
-    var personObject2 = new Person ('pera', 'peric', 'Aug 10 1975');
-    var personObject3 = new Person ('marko','markovic', 'Nov 12 1982');
-    var personObject4 = new Person ('pera', 'peric', 'Aug 10 1975');
+    var personObject1 = new Person ('Pera','Peric', 'Nov 12 1982');
+    var personObject2 = new Person ('Mitar','Miric', 'Aug 10 1975');
+    var personObject3 = new Person ('Marko','Markovic', 'Sep 23 1967');
+    var personObject4 = new Person ('Luke', 'Skywalker', 'Apr 10 1971');
 
-    var playerObject1 = new Player(personObject1, 100, countryObject1)
-    var playerObject2 = new Player(personObject2, 200, countryObject1)
-    var playerObject1 = new Player(personObject1, 100, countryObject1)
-    var playerObject2 = new Player(personObject2, 200, countryObject1)
+    var playerObject1 = createPlayer(personObject1, 1000, countryObject1);
+    var playerObject2 = createPlayer(personObject2, 2000, countryObject1);
+    var playerObject3 = createPlayer(personObject3, 500, countryObject2);
+    var playerObject4 = createPlayer(personObject4, 2500, countryObject3);
 
     var adressObject1 = new Adress ('SR', 'Beograd', '11000', 'Nemanjina', '104');
-    var adressObject2 = new Adress ('SR', 'Novi Sad', '21000', 'Pavlova', '204');
+    var adressObject2 = new Adress ('SR', 'Novi Sad', '21000', 'Pap Pavla', '204');
 
-    var bettingPlaceObject1 = new BettingPlace (adressObject1);
-    var bettingPlaceObject2 = new BettingPlace (adressObject2);
-    
+    var bettingPlaceObject1 = createBettingPlace(adressObject1);
+    var bettingPlaceObject2 = createBettingPlace(adressObject2);    
 
     bettingPlaceObject1.addPlayer(playerObject1);
     bettingPlaceObject1.addPlayer(playerObject2);
     bettingPlaceObject2.addPlayer(playerObject3);
     bettingPlaceObject2.addPlayer(playerObject4);
+
+    bettingHouseObject1.addBettingPlaces(bettingPlaceObject1);
+    bettingHouseObject1.addBettingPlaces(bettingPlaceObject2);
+
+
+    console.log(bettingHouseObject1.getData());
 
     
 })();
