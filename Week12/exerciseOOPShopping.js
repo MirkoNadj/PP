@@ -35,14 +35,48 @@ function ShoppingBag () {
         var averagePriceOfAll = (sumPriceOfAll/this.listOfProducts.length).toFixed(3);
         return averagePriceOfAll;
     }
+    this.mostExpensive = function () {
+        var mostExpensive;
+        this.listOfProducts.forEach(function (productElement) {
+            if productElement[x].price > 
+        })
+
+    }
+    this.calculateTotalPrice = function () {
+        var totalPrice = 0;
+        this.listOfProducts.forEach(function (productElement) {
+            totalPrice += productElement.price;
+        })
+        return totalPrice;
+    }
+
+    // Payment card constructor //
+
+    function PaymentCard (accountBalance, status, validUntil) {
+        this.accountBalance = accountBalance.toFixed(2);
+        this.status = status;
+        this.validUntil = new Date(validUntil);
+    }
+
+    var function checkPutAndBuy (shoppingBagObject, PaymentCardObject) {
+        if (PaymentCardObject.accountBalance >= shoppingBagObject.calculateTotalPrice()) {
+            return 'Purchase succesfull'
+        }
+        else {
+            return 'Not enough money'
+        }
+    }
 };
 
+
+
+// TESTING //
 var productObject = new Product ('mleko', 100, 'Nov 12 2021');
 console.log(productObject)
 
 var shoppingBagObject = new ShoppingBag;
 
-console.log(ShoppingBagObject)
+console.log(shoppingBagObject)
 
 shoppingBagObject.addProduct(productObject);
 console.log(shoppingBagObject.averagePrice())
