@@ -11,11 +11,14 @@
 			var genreShort = this.name.charAt(0).toUpperCase() + this.name.charAt(name.length-1).toUpperCase();
 			return genreShort;
 		};
-	}
+	};
 	
 	// Constructor Movie //
 	
 	function Movie (title, genreObject, length) {
+        if (typeof length !== 'number') {
+            throw new Error ('Movie length input error');
+        };
 		this.title = title;
 		this.genre = genreObject;
 		this.length = length;
@@ -59,6 +62,9 @@
 	// Constructor Festival //
 	
 	function Festival (name, maxNumberOfMovies) {
+        if (typeof maxNumberOfMovies === 'string') {
+            throw new Error ('Please input a number')
+        }
 		this.name = name;
 		this.listOfPrograms = [];
 		this.numberOfMoviesInAll = function () {
@@ -77,7 +83,7 @@
         }
         this.addProgram = function (programObject) {
             if ((this.numberOfMoviesInAll() + programObject.numberOfMovies()) > maxNumberOfMovies) {
-                return 'Sori'
+                return new Error ('Maximum number of movies exceeded.');
             }
             else {
             return this.listOfPrograms.push(programObject);
@@ -91,7 +97,7 @@
             return this.name + ' has ' + this.numberOfMoviesInAll()  + ' movie titles \n' + this.listAllPrograms();
             }
         };
-	}
+	};
 
     // CREATE A MOVIE FUNCTION //
 
@@ -109,8 +115,8 @@
     }
 
     // CREATING OBJECTS //
-
-    var festivalObject1 = new Festival('Palics movie festival', 7);
+    try {
+    var festivalObject1 = new Festival('Palics movie festival', 6);
 
     var programObject1 = createProgram ('Aug 12 2021');
     var programObject2 = createProgram ('Aug 13 2021');
@@ -131,8 +137,7 @@
     programObject1.addMovie(movieObject4);
     programObject1.addMovie(movieObject5);
     programObject1.addMovie(movieObject6);
-    programObject1.addMovie(movieObject7);
-    
+    programObject1.addMovie(movieObject7);    
 
     programObject2.addMovie(movieObject1);
     programObject2.addMovie(movieObject2);
@@ -144,10 +149,10 @@
 
     console.log(festivalObject1.getData());
 
-
-
-
-
-
+    } catch (error) {
+        if (error === 'Movie length input error') {
+            return ('Error message: ' + error.message);    // 'return' stops execution
+        };
+    };
 	
 })();

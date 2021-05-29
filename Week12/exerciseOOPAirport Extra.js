@@ -21,11 +21,11 @@ function Person (name, surname) {
 
 function Seat (number, category) {
     // if category not defined
-    category = category || 'e';
-    number = number || Math.floor(10 + 91 * Math.random());
-    if (!['e','b'].includes(category)) {
+    this.category = category || 'e';
+    this.number = number || Math.floor(10 + 91 * Math.random());
+    /*if (!['e','b'].includes(category)) {
         throw new Error('Invalid category input');
-    }    
+    }   */ 
     this.getData = function () {
         return this.number +', ' + this.category.toUpperCase(); 
     }
@@ -42,7 +42,13 @@ function Passenger (personObject, seatObject) {
     this.person = personObject.getData();
     this.seat = seatObject.getData();
     this.getData = function () {
-        return '\t\t\t\t' + this.seat + ', ' + this.person; 
+        if (this.seat.category === 'e') {
+            seat = 'economy'
+        }
+        else if ( this.seat.category === 'b') {
+            seat = 'bussines'
+        }
+        return '\t\t\t\t' + this.seat + ', ' + this.person;
     };
 }
 // Flight constructor //
@@ -55,16 +61,18 @@ function Flight (relation, date) {
     this.date = new Date(date);
     this.listOfPassengers = [];
     this.addPassenger = function (passengerObject) {
-    
+        if (this.listOfPassengers.length === 100) {
+            throw Error ('Flight is full')
+        }    
         this.listOfPassengers.forEach(function (passengerElement) {
             if (passengerObject.seat.number === passengerElement.seat.number) {
-                return "same seat";
+                throw Error ('Seat already taken');
+            }            
+            else if (passengerElement.person.name === passengerObject.person.name && passengerElement.person.surname === passengerObject.person.surname ) {
+                throw Error ('Passenger already on list');
             }
-            else {
-                
-            }return this.listOfPassengers.push(passengerObject);
-        })
-        
+            return this.listOfPassengers.push(passengerObject);
+        })        
     };
     this.getData = function () { 
         var flightString = '';
@@ -90,8 +98,8 @@ function Airport () {
             flightData += '\n' + flightElement.getData() + '\n';
         });
         return 'Airport: ' + this.name + ', total passengers: ' + totalPassengers + '\n' + flightData; 
-    }
-}
+    };
+};
 
 // CREATE FLIGHT FUNCTION //
 
@@ -118,9 +126,6 @@ var airportObject1 = new Airport();
 var flightObject1 = createFlight ('Belgrade - New York', 'Oct 25 2017');
 var flightObject2 = createFlight('Barcelona - Belgrade', 'Nov 11 2017');
 
-
-
-
 // CREATING FOUR INSTANCES OF THE PASSENGER OBJECT USING CREATEPASSENGER FUNCTION //
 
 var passengerObject1 = createPassenger ('John', 'Snow', 1, 'b');
@@ -128,13 +133,14 @@ var passengerObject2 = createPassenger ('Cersei', 'Lannister', 2, 'b');
 var passengerObject3 = createPassenger ('Daenerys', 'Targaryen', 14);
 var passengerObject4 = createPassenger ('Tyrion', 'Lannister', 1);
 
+//console.log(passengerObject1);
 
 // ADDING FIRST TWO PASSENGER TO THE FIRST FLIGHT //
 
 flightObject1.addPassenger(passengerObject1);
 flightObject1.addPassenger(passengerObject2);
 
-
+console.log(flightObject1.getData());
 
 // ADDING LAST TWO PASSENGER TO THE SECOND FLIGHT //
 
@@ -146,7 +152,6 @@ flightObject2.addPassenger(passengerObject4);
 airportObject1.addFlight(flightObject1);
 airportObject1.addFlight(flightObject2);
 
-
 console.log(airportObject1.getData());
 
 
@@ -154,3 +159,7 @@ console.log(airportObject1.getData());
 
 // END OF IMMEDIATELY INVOKING ANONYMOUS FUNCTION
 })();
+
+
+
+console.log(Math.random() * 10);
