@@ -139,15 +139,17 @@
     programObject1.addMovie(movieObject6);
     programObject1.addMovie(movieObject7);    
 
-    programObject2.addMovie(movieObject1);
+    /*programObject2.addMovie(movieObject1);
     programObject2.addMovie(movieObject2);
     programObject2.addMovie(movieObject3);
-    programObject2.addMovie(movieObject4);
+    programObject2.addMovie(movieObject4);*/
 
-    festivalObject1.addProgram(programObject1);
-    festivalObject1.addProgram(programObject2);
+    console.log(programObject1)
 
-    console.log(festivalObject1.getData());
+    //festivalObject1.addProgram(programObject1);
+   // festivalObject1.addProgram(programObject2);
+
+    //console.log(festivalObject1.getData());
 
     } catch (error) {
         if (error === 'Movie length input error') {

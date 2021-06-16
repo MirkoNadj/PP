@@ -10,7 +10,12 @@ body {
     background-size: cover;
 }
 
+.envelope2{
+    background-color: white;
+}
+
 .envelope {
+    
     width: 320px;
     height:520px;
     text-align: center;
@@ -20,6 +25,9 @@ body {
     border-color: rgb(165, 145, 117);
     margin: 200px auto;
     background-image: linear-gradient(to right bottom, #d39029, #cf9d45, #cba95f, #c9b47a, #c9be95);
+    background-image: none;
+    background-color: red;
+    
 }
 label {
     display: inline-block;
