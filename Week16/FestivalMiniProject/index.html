@@ -23,8 +23,8 @@
                 <option value="comedy">Comedy</option>
                 <option value="drama">Drama</option>
                 <option value="sci-fi">Sci-Fi</option>
-                <option value="Adventure">Adventure</option>
-                <option value="Horor">Horor</option>
+                <option value="adventure">Adventure</option>
+                <option value="horor">Horor</option>
             </select><br><br>
             <input id="create-movie-btn" class="button" type="button" value="Create Movie"><br>
             <ul id="created-movie-here"></ul>
@@ -37,12 +37,14 @@
             <ul id="programs-list"></ul><br>
             <label>Movie</label><br>
             <select id="movie-dropdown-list" name="movie">
+                <option value="-">-</option>
             </select><br>
             <p>Program</p><br>
             <select id="program-dropdown-list" class="drop-down" name="movie">
                 <option value="-">-</option>
             </select><br><br>
-            <input id="addmovie-btn" class="button" type="submit" value="Add movie to program">
+            <input id="addmovie-btn" class="button" type="button" value="Add movie to program">
+            <input id="remove-movie-btn" class="button" type="button" value="Remove movie from program">
         </div>    
     </div>
     <script src="entities.js"></script>
