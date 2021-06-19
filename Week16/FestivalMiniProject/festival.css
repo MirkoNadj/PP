@@ -2,13 +2,18 @@
     width: 90%;
     padding: 15px;
     margin: 10px auto;
+    background-color:snow;
 }
 div {
     border-style: solid;
     border-color: black;
     border-radius: 5px;
     padding: 10px;
-    
+}
+
+.disabled-div {
+    pointer-events: none;
+    opacity: 0.4;
 }
 .button {
     width: 100%;
@@ -24,4 +29,58 @@ input {
 
 select {
     width: 100%;
+}
+
+.removeMovieBtn {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    margin-left: 10px;
+    background-color: red;
+    display: none;
+}
+.on-off {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    margin-left: 10px;
+    background-color: red;    
+    display: inline;
+}
+
+.del-button {
+    color: white;
+    background-color: brown;
+    border-radius: 5px;
+    width:10%;
+
+}
+.hideInputError {
+	background-color:red;
+	display: none;
+}
+.showInputError {
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 20px;
+	background-color:red;
+	display: inline;
+}
+
+.hideMovieCreated {
+	background-color:green;
+	display: none;
+}
+.showMovieCreated {
+	background-color:green;
+	display: inline;
+}
+.sign-button {
+    width: 80%;
+    margin: 5px 10%;
+}
+
+.msgDiv {
+    height: 10px;
+    text-align: center;
 }

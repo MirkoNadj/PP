@@ -10,12 +10,20 @@
 <body>
     <div class="main-div">
         <p>Please fill in the form</p>
+		<div id="signIn-div">
+		<label>User:</label>
+		<input id="user-name" type="text" name="username" size="15" max length="30">
+		<label>Password:</label>
+		<input id="password" type="password" name="password" size="15" max length="30">
+		<input id="sign-in-btn" class="sign-button" type="button" value="Sign In">
+        <input id="sign-out-btn" class="sign-button" type="button" value="Sign Out"><br>
+		</div>
             <p>Movie</p>
-        <div>
+        <div id="divMovie">
             <label>Title</label><br>
-            <input id="movie-title" type="text" name="username" size="15" max length="30"><br><br>
+            <input id="movie-title" type="text" name="movie-title" size="15" max length="30" autocomplete="off"><br><br>
             <label>Length(min)</label><br><br>
-            <input id="movie-length" type="text" name="username" size="15" max length="30"><br><br>
+            <input id="movie-length" type="text" name="movie-length" size="15" max length="30"><br><br>
             <label>Genre</label><br><br>
             <select id="genre" name="genre">
                 <option value="-">-</option>
@@ -26,14 +34,20 @@
                 <option value="adventure">Adventure</option>
                 <option value="horor">Horor</option>
             </select><br><br>
-            <input id="create-movie-btn" class="button" type="button" value="Create Movie"><br>
+            <div class="msgDiv">
+			<p id="movie-created" class="hideMovieCreated">MOVIE CREATED</p>
+			<p id="input-error" class="hideInputError">INPUT ERROR</p>
+            </div>
+            <input id="create-movie-btn" class="button" type="button" value="Create Movie">
+            <input id="delete-movie-btn" class="del-button" type="button" value="Delete Movie"><br>
             <ul id="created-movie-here"></ul>
         </div>
         <p>Program</p>
-        <div>
+        <div id="divProgram">
             <label>Date</label><br>
             <input id="program-date" type="date" name="somedate"><br><br>
-            <input id="create-program-btn" class="button" type="submit" value="Create Program"><br><br>
+            <input id="create-program-btn" class="button" type="button" value="Create Program">
+            <input id="delete-program-btn" class="del-button" type="button" value="Delete Program"><br><br>
             <ul id="programs-list"></ul><br>
             <label>Movie</label><br>
             <select id="movie-dropdown-list" name="movie">
@@ -44,7 +58,7 @@
                 <option value="-">-</option>
             </select><br><br>
             <input id="addmovie-btn" class="button" type="button" value="Add movie to program">
-            <input id="remove-movie-btn" class="button" type="button" value="Remove movie from program">
+            <input id="remove-movie-btn" class="del-button" type="button" value="Remove movie">
         </div>    
     </div>
     <script src="entities.js"></script>
