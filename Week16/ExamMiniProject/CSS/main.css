@@ -1,0 +1,160 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+.container {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+header {
+    width: 100%;
+    text-align:center;
+    background-image: url("../img/slika.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;      
+}
+
+
+.test-results p {
+    display: inline;
+}
+ 
+
+ 
+
+
+.passed-stud {
+    
+    text-align: left;
+    background-color: #33B8B4 ;
+    width: 40%;
+    height: 35px;
+    padding-left: 5px;
+    margin: 10px auto;
+    color: white;
+}
+
+.num-that-passed {
+    margin-left: auto;
+}
+ 
+.failed-stud {
+    text-align: left;
+    background-color: #FC524F ;
+    width: 40%;
+    height: 35px;
+    padding-left: 5px;
+    margin: 10px auto;
+    color: white; 
+    margin-bottom: 40px;
+}
+
+.num-that-failed {
+    margin-left: auto; 
+    list-style: none;    
+}
+
+.num-that-failed li {
+    display: inline;
+    margin-right: 5px;
+}
+ .failed-percent {
+    background-color:#FCA7A5 ;
+     
+ }
+ /* inputs for test */
+.inputs-div {    
+    width: 60%;
+    height: 50px;
+    background-color:#F7F7F7;
+    margin: 0px auto;     
+}
+ 
+.input-data input {
+    margin-left: 5%;
+    height: 60%;
+    text-align: center;
+}
+ 
+.grade {
+    width: 10%;
+}
+ 
+.subject-dropdown {
+    height: 60%;
+    width: 15%;
+}
+
+ 
+.add-btn {
+    color : #33B8B4;
+    border: none;
+    background-color: #F7F7F7 ;
+    font-size: 25px;
+    cursor: pointer;
+}
+ 
+/*result if student passed or failed with individual result*/
+.test-results {
+    width: 80%;
+    margin-top: 20px;
+}
+ 
+/* passed result of students*/
+.passed-results {  
+    display: inline-block;   
+    width: 40%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 5%;     
+ }
+ .passed-results > p {
+     color: #33B8B4;
+     margin-bottom: 10px;
+ }
+ .passed-results div {
+     align-items: center;
+     border-top: 1px solid black;
+     border-bottom: 1px solid black;
+     height: 33px;
+ }
+ .grade-of-student-passed {
+     margin-left: auto;
+     padding-right: 5px;
+     color: #33B8B4;
+ }
+ /*failed result of students*/
+ .failed-results  {
+     display: inline-block;
+     width: 40%;
+     padding-top: 10px;
+     padding-bottom: 10px;
+     margin-left: 5%;
+     
+ }
+ .failed-results > p {
+     color: #FC524F;
+     margin-bottom: 10px;
+ }
+ .failed-results div {
+
+     align-items: center;
+     border-top: 1px solid black;
+     border-bottom: 1px solid black;
+     height: 33px;
+ }
+ .grade-of-student-passed {
+     margin-left: auto;
+     padding-right: 5px;
+ }
+ .grade-of-student-failed {
+     margin-left: auto;
+     padding-right: 5px;
+     color: #FC524F;
+ }

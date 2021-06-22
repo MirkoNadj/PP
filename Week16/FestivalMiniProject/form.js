@@ -215,3 +215,32 @@ deleteProgramBtnElement.addEventListener('click', deleteProgram);
 
 
 
+createProgram
+<ul>
+<li>programObject1.getData</li>
+<li>programObject2.getData</li>
+</ul>
+
+
+new programObject1
+new programObject2
+
+listOfPrograms = [programObject1, programObject2]
+
+indexForValue = 0 
+indexForValue = 1
+
+option 0
+optin 1
+
+listOfPrograms[dropdown.value]
+
+
+var arrayOfLiiis = ul.getElementsByTagName('li') = [<li>programObject1.getData</li>, <li>programObject2.getData</li>]
+
+
+pregazi stari LI arrayOfLiiis[dropdown.value] = listOfPrograms[dropdown.value].getData()
+
+pregazi stari OPTION arrayOfLiiis[dropdown.value] = listOfPrograms[dropdown.value].getData()
+
+
