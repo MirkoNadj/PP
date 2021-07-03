@@ -1,13 +1,7 @@
 // festival
 function Festival () {    
-    this.listOfAllMovies = 
+    this.listOfAllMovies = [];
     this.listOfAllPrograms = [];
-
-value 0,     1,       2
-[movieO1, movieO2, movieO3];
-    
-
-    festivalObject.listOfAllMovies[value].
 }
 Festival.prototype.addMovie = function (movieObject) {
     this.listOfAllMovies.push(movieObject);
@@ -17,9 +11,6 @@ Festival.prototype.addProgram = function (programObject) {
     this.listOfAllPrograms.push(programObject);
     return this.listOfAllPrograms.length-1;
 }
-
-
-
 
 // Constructor Movie //
 	
@@ -34,7 +25,7 @@ function Movie (title, genre, length) {
 
 // Constructor Program //
 function Program (date) {
-    this.date = new Date(date);       paunovic.ivana.arh@gmail.com  maaachak@gmail.com
+    this.date = new Date(date);
     this.listOfMovies = [];
     this.numberOfMovies = function () {
         return this.listOfMovies.length;
@@ -62,21 +53,7 @@ function Program (date) {
             allMoviesData += movieElement.getData() + '\n\t\t';
         });
         return this.date.toDateString() + ', ' + this.listOfMovies.length + ' movies, program duration ' + allMoviesLength + ' min.' /*\n\t\t' + allMoviesData*/ ;
-        };
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
+        };        
     
     this.getDate = function () {
         return this.date.toDateString()
