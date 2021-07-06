@@ -134,22 +134,96 @@ console.log(filterGreater([1.6, 11.34, 29.23, 7, 3.11, 18]));
 Write a function that prints out the names of persons older than 25. 
 Write a function that check if there is a person older than 40.
 Write a function that checks if all persons are older than 20.   */ 
- 
+
+const persons = [{ name: "John", age: 18}, { name: "Jane", age: 28}, {name: "Sara", age: 40}, {name: "Bob", age: 70}];
+
+let namesOfOlder = (arr) => {
+    let olderNames = '';
+    arr.forEach (e => {
+        if (e.age > 25) {
+            olderNames += e.name + " ";
+        }
+    })
+    return olderNames;
+}
+console.log(namesOfOlder(persons))
+
+let checkIfOlder = (arr) => {
+    let isOlder = arr.some (e => e.age > 40);
+    return isOlder ? 'yes' : 'no'
+}
+console.log(checkIfOlder(persons))
+
+let checkAllOlder = (arr) => {
+    let allOlder = arr.every (e => e.age > 20);
+    return allOlder ? 'yes' : 'no'
+}
+console.log(checkAllOlder(persons))
 
 
-/* 10 Write a function that checks if the given array is an array of positive integer values. 
+// other way
+
+let persons = [{name:'Sasa', age:47}, {name:'Dusan', age:19}, {name:'Sladja', age:26}, {name:'Nikola', age:35}];
+
+/* b.	Write a function that prints out the names of persons older than 25. */
+
+const printOlder = array => array.forEach ((item => {
+    const { age, name } = item;
+    if (age > 25) console.log(name);
+}));
+
+printOlder(persons);
+
+/* c.	Write a function that check if there is a person older than 40.*/
+
+const isOlder = array => array.forEach ((item => {
+    const { age, name } = item;
+    if (age > 40) console.log(`${name} is older than 40`)
+}));
+
+isOlder(persons);
+
+
+/* 10.  Write a function that checks if the given array is an array of positive integer values. 
     Input: [3, 11, 9, 5, 6]
     Output: yes
 
     Input: [3, -12, 4, 11]
-    Output: no
+    Output: no    */
 
-Write a function that calculates the product of the elements of the array. 
+let checkPositive = (arr) => {
+    check = 'yes';
+    arr.forEach ( e => {
+        if ( e < 0) {
+            check = 'no';
+        }
+    })
+    return check;
+}
+
+console.log(checkPositive([3, 11, 9, 5, 6]))
+console.log(checkPositive([3, -12, 4, 11]))
+
+/* 11.  Write a function that calculates the product of the elements of the array. 
 Input: [2, 8, 3]
-Output:  48
+Output:  48    */
 
-Write a function that calculates the maximum of the given array. 
+let calcProduct = (arr) => {
+    let product = 1;
+    arr.forEach ( e => {
+        product *= e;
+    })
+    return product;
+}
+
+console.log(calcProduct([2, 8, 3]))
+
+/* 12. Write a function that calculates the maximum of the given array. 
 Input: [2, 7, 3, 8, 5.4] 
-    Output: 8
+    Output: 8   */
 
-*/
+let calcMaximum = (arr) => {
+    return Math.max(...arr)
+}
+
+console.log(calcMaximum([2, 7, 3, 8, 5.4]))
